@@ -1,52 +1,59 @@
+import 'package:concious_consumer_duo_app/faq.dart';
+import 'package:concious_consumer_duo_app/product_details.dart';
+import 'package:concious_consumer_duo_app/scan_product.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Wrap Scaffold with MaterialApp
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Barcode Scanner App'),
+          title: const Text('Barcode Scanner App'),
         ),
-        body: Center(
-          child: Text('This is the main screen'),
+        body: IndexedStack(
+          index: currentIndex, // Current selected index
+          children: const [
+            ProductDetailsPage(),
+            ScanProductPage(),
+            FaqPage(),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+              icon: Icon(Icons.production_quantity_limits),
+              label: 'Product details',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.scanner),
               label: 'Scan',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'History',
+              icon: Icon(Icons.question_answer),
+              label: 'FAQ',
             ),
           ],
-          currentIndex: 0, // Set the initial selected item
-          selectedItemColor: Colors.blue, // Color for selected item
-          unselectedItemColor: Colors.grey, // Color for unselected items
+          currentIndex: currentIndex,
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey,
           onTap: (int index) {
-            // Handle item selection
-            switch (index) {
-              case 0:
-                // Navigate to home screen
-                break;
-              case 1:
-                // Navigate to scan screen
-                break;
-              case 2:
-                // Navigate to history screen
-                break;
-            }
+            setState(() {
+              currentIndex = index;
+            });
           },
         ),
       ),
