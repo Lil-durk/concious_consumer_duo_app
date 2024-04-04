@@ -18,6 +18,7 @@ class ScanProductPage extends StatefulWidget {
 
 class _ScanProductPageState extends State<ScanProductPage> {
   bool withOverlay = true;
+  bool isScanning = false;
 
   @override
   void initState() {
@@ -98,6 +99,8 @@ class _ScanProductPageState extends State<ScanProductPage> {
                                           child: const Text('Close dialog'))
                                     ]))));
                   });
+              await BarcodeScanner.stopScanner();
+              setState(() => isScanning = false);
             },
             onTextDetected: (String text) async {
               await showDialog(
@@ -147,20 +150,37 @@ class _ScanProductPageState extends State<ScanProductPage> {
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.white, width: 2),
                   borderRadius: BorderRadius.circular(15)))),
+      // Positioned(
+      //     top: 16,
+      //     right: 16,
+      //     child: ElevatedButton(
+      //         style: ButtonStyle(
+      //             backgroundColor: MaterialStateProperty.all(Colors.purple),
+      //             foregroundColor: MaterialStateProperty.all(Colors.white),
+      //             shape: MaterialStateProperty.all(const CircleBorder()),
+      //             padding: MaterialStateProperty.all(const EdgeInsets.all(8))),
+      //         onPressed: () {
+      //           ScaffoldMessenger.of(builderContext).showSnackBar(
+      //               const SnackBar(content: Text('Icon button pressed')));
+      //         },
+      //         child: const Icon(Icons.refresh, size: 32))),
       Positioned(
-          top: 16,
-          right: 16,
-          child: ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.purple),
-                  foregroundColor: MaterialStateProperty.all(Colors.white),
-                  shape: MaterialStateProperty.all(const CircleBorder()),
-                  padding: MaterialStateProperty.all(const EdgeInsets.all(8))),
-              onPressed: () {
-                ScaffoldMessenger.of(builderContext).showSnackBar(
-                    const SnackBar(content: Text('Icon button pressed')));
-              },
-              child: const Icon(Icons.refresh, size: 32))),
+        bottom: 20,
+        right: 20,
+        child: FloatingActionButton(
+          onPressed: () async {
+            if (isScanning) {
+              await BarcodeScanner.stopScanner();
+            } else {
+              await BarcodeScanner.startScanner();
+            }
+            setState(() => isScanning = !isScanning);
+          },
+          child: Icon(
+            isScanning ? Icons.stop : Icons.camera_alt, // Change icon
+          ),
+        ),
+      ),
     ]);
   }
 }
