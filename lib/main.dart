@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Barcode Scanner App'),
         ),
         body: IndexedStack(
-          index: currentIndex, // Current selected index
+          index: currentIndex,
           children: const [
             ProductDetailsPage(),
             ScanProductPage(),
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
               label: 'Product details',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.scanner),
+              icon: Icon(Icons.barcode_reader),
               label: 'Scan',
             ),
             BottomNavigationBarItem(
