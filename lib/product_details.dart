@@ -28,34 +28,31 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Align content left
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Row for 3 images (adjusted width for middle image)
               Row(
-                mainAxisAlignment: MainAxisAlignment.center, // Center images
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
                     'images/ecoscore.png',
                     width: 90,
                     height: 100,
                   ),
-                  const SizedBox(width: 16.0), // Spacing between images
+                  const SizedBox(width: 16.0),
                   Image.asset(
-                    'images/milk.jpg', // Replace with your image path
+                    'images/milk.jpg',
                     width: 100,
                     height: 200,
                   ),
-                  const SizedBox(width: 16.0), // Spacing between images
+                  const SizedBox(width: 16.0),
                   Image.asset(
-                    'images/nutriscore.png', // Replace with your image path
+                    'images/nutriscore.png',
                     width: 80,
                     height: 100,
                   ),
                 ],
               ),
-              const SizedBox(height: 16.0), // Spacing between sections
-
-              // Row for title and price
+              const SizedBox(height: 16.0),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -69,33 +66,25 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 8.0), // Spacing between title and icon
-
-              // Row for info icon and nutritional values (replace with actual widget)
+              const SizedBox(height: 8.0),
               Row(
                 children: [
                   IconButton(
                     icon: const Icon(Icons.info_outline),
-                    onPressed: () =>
-                        showNutritionalInfo(context), // Handle click
+                    onPressed: () => showNutritionalInfo(context),
                   ),
-                  const Text(
-                      'Nutritional Values'), // Replace with actual widget
+                  const Text('Nutritional Values'),
                 ],
               ),
-              const SizedBox(height: 8.0), // Spacing between info and list
-
-              // Row for quality marks (replace with actual widget)
+              const SizedBox(height: 8.0),
               Wrap(
                 runSpacing: 16.0,
-                // Wrap for horizontal overflow
                 children: [
                   Row(
-                    // Wrap each image-text pair in a Row
-                    mainAxisSize: MainAxisSize.min, // Avoid unnecessary space
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        'images/vegan.png', // Replace with your image path
+                        'images/vegan.png',
                         width: 50.0,
                         height: 50.0,
                       ),
@@ -108,7 +97,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        'images/betterfor.gif', // Replace with your image path
+                        'images/betterfor.gif',
                         width: 50.0,
                         height: 50.0,
                       ),
@@ -121,7 +110,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        'images/glutenfree.avif', // Replace with your image path
+                        'images/glutenfree.avif',
                         width: 50.0,
                         height: 50.0,
                       ),
@@ -134,7 +123,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        'images/weidemelk.png', // Replace with your image path
+                        'images/weidemelk.png',
                         width: 50.0,
                         height: 50.0,
                       ),
@@ -151,7 +140,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
     );
   }
 
-  // Function to handle nutritional info display (replace with actual implementation)
   void showNutritionalInfo(BuildContext context) {
     showDialog(
       context: context,
