@@ -1,5 +1,5 @@
 name: concious_consumer_duo_app
-description: "A new Flutter project."
+description: "Duo case Dirk and Wilson"
 publish_to: 'none'
 version: 0.1.0
 
@@ -18,3 +18,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+  - images/ecoscore.png
+  - images/milk.jpg
+  - images/nutriscore.png
+  - images/betterfor.gif
+  - images/glutenfree.avif
+  - images/weidemelk.png
+  - images/vegan.png

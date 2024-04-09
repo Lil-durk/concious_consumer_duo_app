@@ -15,11 +15,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int currentIndex = 0;
+  int currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/product_details': (context) => const ProductDetailsPage(),
+      },
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Barcode Scanner App'),

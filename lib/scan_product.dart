@@ -4,9 +4,6 @@ import 'package:native_barcode_scanner/barcode_scanner.dart';
 enum CameraActions {
   flipCamera,
   toggleFlashlight,
-  stopScanner,
-  startScanner,
-  setOverlay
 }
 
 class ScanProductPage extends StatefulWidget {
@@ -28,8 +25,7 @@ class _ScanProductPageState extends State<ScanProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            AppBar(title: const Text('Scanner plugin example app'), actions: [
+        appBar: AppBar(title: const Text('Product scanner'), actions: [
           PopupMenuButton<CameraActions>(
             onSelected: (CameraActions result) {
               switch (result) {
@@ -38,15 +34,6 @@ class _ScanProductPageState extends State<ScanProductPage> {
                   break;
                 case CameraActions.toggleFlashlight:
                   BarcodeScanner.toggleFlashlight();
-                  break;
-                case CameraActions.stopScanner:
-                  BarcodeScanner.stopScanner();
-                  break;
-                case CameraActions.startScanner:
-                  BarcodeScanner.startScanner();
-                  break;
-                case CameraActions.setOverlay:
-                  setState(() => withOverlay = !withOverlay);
                   break;
               }
             },
@@ -59,18 +46,6 @@ class _ScanProductPageState extends State<ScanProductPage> {
               const PopupMenuItem<CameraActions>(
                 value: CameraActions.toggleFlashlight,
                 child: Text('Toggle flashlight'),
-              ),
-              const PopupMenuItem<CameraActions>(
-                value: CameraActions.stopScanner,
-                child: Text('Stop scanner'),
-              ),
-              const PopupMenuItem<CameraActions>(
-                value: CameraActions.startScanner,
-                child: Text('Start scanner'),
-              ),
-              PopupMenuItem<CameraActions>(
-                value: CameraActions.setOverlay,
-                child: Text('${withOverlay ? 'Remove' : 'Add'} overlay'),
               ),
             ],
           ),
@@ -94,9 +69,13 @@ class _ScanProductPageState extends State<ScanProductPage> {
                                       Text('barcode : ${barcode.value}'),
                                       Text('format : ${barcode.format.name}'),
                                       ElevatedButton(
-                                          onPressed: () =>
-                                              Navigator.pop(dialogContext),
-                                          child: const Text('Close dialog'))
+                                        onPressed: () async {
+                                          Navigator.pop(dialogContext);
+                                          Navigator.pushNamed(
+                                              context, '/product_details');
+                                        },
+                                        child: const Text('View Details'),
+                                      ),
                                     ]))));
                   });
               await BarcodeScanner.stopScanner();
@@ -150,20 +129,6 @@ class _ScanProductPageState extends State<ScanProductPage> {
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.white, width: 2),
                   borderRadius: BorderRadius.circular(15)))),
-      // Positioned(
-      //     top: 16,
-      //     right: 16,
-      //     child: ElevatedButton(
-      //         style: ButtonStyle(
-      //             backgroundColor: MaterialStateProperty.all(Colors.purple),
-      //             foregroundColor: MaterialStateProperty.all(Colors.white),
-      //             shape: MaterialStateProperty.all(const CircleBorder()),
-      //             padding: MaterialStateProperty.all(const EdgeInsets.all(8))),
-      //         onPressed: () {
-      //           ScaffoldMessenger.of(builderContext).showSnackBar(
-      //               const SnackBar(content: Text('Icon button pressed')));
-      //         },
-      //         child: const Icon(Icons.refresh, size: 32))),
       Positioned(
         bottom: 20,
         right: 20,
