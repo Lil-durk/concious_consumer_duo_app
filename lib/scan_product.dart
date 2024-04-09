@@ -25,7 +25,7 @@ class _ScanProductPageState extends State<ScanProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Product scanner'), actions: [
+        appBar: AppBar(title: const Text('Product Scanner'), actions: [
           PopupMenuButton<CameraActions>(
             onSelected: (CameraActions result) {
               switch (result) {
@@ -98,7 +98,7 @@ class _ScanProductPageState extends State<ScanProductPage> {
                                       ElevatedButton(
                                           onPressed: () =>
                                               Navigator.pop(dialogContext),
-                                          child: const Text('Close dialog'))
+                                          child: const Text('Close'))
                                     ]))));
                   });
             },

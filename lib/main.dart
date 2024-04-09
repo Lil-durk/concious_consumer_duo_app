@@ -24,9 +24,6 @@ class _MyAppState extends State<MyApp> {
         '/product_details': (context) => const ProductDetailsPage(),
       },
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Barcode Scanner App'),
-        ),
         body: IndexedStack(
           index: currentIndex,
           children: const [
