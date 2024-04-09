@@ -9,6 +9,7 @@ class ProductDetailsPage extends StatefulWidget {
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   final List<String> nutritionalValues = [
+    'Calories: 365 kcal',
     'Fat: 3g',
     'Saturated fat: 1.5g',
     'Carbohydrates: 12g',
