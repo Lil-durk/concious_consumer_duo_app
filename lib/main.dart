@@ -31,6 +31,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: {
         '/home': (context) => const HomePage(),
+        '/product_details': (context) => const ProductDetailsPage(),
       },
       home: Scaffold(
         body: IndexedStack(

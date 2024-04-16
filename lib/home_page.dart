@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                         ),
                         child: Image.asset(
-                          'images/milk.jpg',
+                          'images/AHMILK.jpg',
                           height: 60.0,
                           fit: BoxFit.fitWidth,
                         ),
@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'De Zaanse Hoeve semi-skimmed milk',
+                              'AH semi-skimmed milk',
                               style: TextStyle(
                                 fontSize: 14.0,
                                 color: Colors.white,
@@ -219,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                               height: 10.0,
                             ),
                             Text(
-                              '€1,95',
+                              '€1,69',
                               style: TextStyle(
                                 fontSize: 20.0,
                                 fontWeight: FontWeight.bold,
