@@ -17,7 +17,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
     'Protein: 3g',
   ];
 
-  String? _selectedValue;
+  String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     style: TextStyle(fontSize: 18.0),
                   ),
                   Text(
-                    '\€1,95',
+                    '€1,95',
                     style: TextStyle(fontSize: 16.0, color: Colors.green),
                   ),
                 ],
@@ -152,7 +152,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   onTap: () {
                     Navigator.pop(context);
                     setState(() {
-                      _selectedValue = value;
+                      selectedValue = value;
                     });
                   },
                 ))
